@@ -3,6 +3,8 @@ package src;
 import static org.junit.Assert.*;
 
 import org.junit.Test;
+
+import junit.framework.Assert;
 import src.Die;
 
 public class DieTest {
@@ -48,6 +50,47 @@ public class DieTest {
 			this.die = new Die(6);
 		}
 		
+	// *----- METODO #3 -----*
+		
+		@Test (expected = AssertionError.class)
+		public void testConstrutorComResultNumSide1Result1() {
+			this.die = new Die(1, 1);
+		}
+		
+		@Test (expected = AssertionError.class)
+		public void testConstrutorComResultNumSide1Result2() {
+			this.die = new Die(1, 2);
+		}
+		
+		@Test (expected = AssertionError.class)
+		public void testConstrutorComResultNumSide3ResultNegativo() {
+			this.die = new Die(3, -1);
+		}
+		
+		@Test 
+		public void testConstrutorComResultNumSide9Result2() {
+			this.die = new Die(9, 2);
+		}
+		
+		@Test (expected = AssertionError.class)
+		public void testConstrutorComResultNumSideNegativoResult2() {
+			this.die = new Die(-1, 2);
+		}
+		
+	// *----- METODO #4 -----*	
+		
+		@Test
+		public void testRoll() {
+			this.die = new Die(5, 2);
+			assertEquals(this.die.roll(), 3);
+		}
+	// *----- METODO #5 -----*
+		
+		@Test
+		public void testGetNumSide() {
+			this.die = new Die(4, 3);
+			assertEquals(this.die.getNumSides(), 4);
+		}
 	
 	// *----- METODO #6 -----*
 	
