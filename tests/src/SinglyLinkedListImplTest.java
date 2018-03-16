@@ -17,7 +17,7 @@ public class SinglyLinkedListImplTest {
 		this.n = new Node<Object>();
 	}
 	
-	// *----- METODO #6 -----*
+	// *----- METODO #10 -----*
 	
 	@Test
 	public void testAddAfter() {
@@ -41,6 +41,62 @@ public class SinglyLinkedListImplTest {
 		this.sll.addAfter(1, 1);
 	}
 	
+	// *----- METODO #11 -----*
+	
+	@Test
+	public void testDeleteFront() {
+		this.sll = new SinglyLinkedListImpl<Object>();
+		this.sll.add(1);
+		this.sll.add(2);
+		this.sll.addAfter(1, 2);
+		this.sll.deleteFront();
+	}
+	
+	@Test(expected=NullPointerException.class)
+	public void testDeleteFrontSemElementos() {
+		this.sll = new SinglyLinkedListImpl<Object>();
+		this.sll.deleteFront();
+	}
+	
+	@Test
+	public void testDeleteFrontProxElementoNull() {
+		this.sll = new SinglyLinkedListImpl<Object>();
+		this.sll.add(1);
+		this.sll.deleteFront();
+	}
+	
+	// *----- METODO #12 -----*
+	
+		@Test
+		public void testDeleteAfterSimples() {
+			this.sll = new SinglyLinkedListImpl<Object>();
+			this.sll.add(1);
+			this.sll.add(2);
+			this.sll.add(3);
+			this.sll.deleteAfter(2);
+		}
+	
+		@Test(expected=NullPointerException.class)
+		public void testDeleteAfterSemProxElemento() {
+			this.sll = new SinglyLinkedListImpl<Object>();
+			this.sll.add(1);
+			this.sll.add(2);
+			this.sll.deleteAfter(2);
+		}
+		
+		@Test
+		public void testDeleteAfterNaoExisteAfter() {
+			this.sll = new SinglyLinkedListImpl<Object>();
+			this.sll.add(1);
+			this.sll.deleteAfter(2);
+		}
+		
+		@Test
+		public void testDeleteAfterSemElementos() {
+			this.sll = new SinglyLinkedListImpl<Object>();
+			this.sll.deleteAfter(1);
+		}
+	
 	// *----- METODO #16 -----*
 		
 		@Test
@@ -59,6 +115,22 @@ public class SinglyLinkedListImplTest {
 		public void testaSetValue1Negativo() {
 			this.n.setValue(- 1);
 			assertEquals(this.n.getValue(), - 1);
+		}
+		
+	// *----- METODO #17 -----*
+		
+		@Test
+		public void testGetNextRef() {
+			Node<Object> n2 = new Node<>();
+			this.n.setValue(1);
+			n2.setValue(2);
+			this.n.setNextRef(n2);
+			assertTrue(this.n.getNextRef().equals(n2));
+		}
+		
+		@Test
+		public void testGetNextRefProxNull() {
+			this.n.getNextRef();
 		}
 		
 	// *----- METODO #18 -----*
