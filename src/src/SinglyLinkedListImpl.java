@@ -133,7 +133,7 @@ public class SinglyLinkedListImpl<T> {
 
 	/*
 	 * #14
-	 */
+
 	public static void main(String a[]){
 		SinglyLinkedListImpl<Integer> sl = new SinglyLinkedListImpl<Integer>();
 		sl.add(3);
@@ -146,6 +146,7 @@ public class SinglyLinkedListImpl<T> {
 		sl.traverse();
 
 	}
+	*/
 }
 
 class Node<T> implements Comparable<T> {
