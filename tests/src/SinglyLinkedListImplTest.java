@@ -97,6 +97,21 @@ public class SinglyLinkedListImplTest {
 			this.sll.deleteAfter(1);
 		}
 	
+		// *----- METODO #13 -----*
+		
+		@Test
+		public void testTraverse() {
+			this.sll = new SinglyLinkedListImpl<Object>();
+			this.sll.traverse();
+		}
+		
+		// *----- METODO #15 -----*
+		
+		@Test
+		public void testGetValue() {
+			assertEquals(this.n.getValue(), null);
+		}
+		
 	// *----- METODO #16 -----*
 		
 		@Test
